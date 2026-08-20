@@ -288,6 +288,77 @@
             font-size: 0.95rem;
         }
 
+        /* Keahlian Styles */
+        .filter-container {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: #2d2d2d;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent-color);
+            color: #121212;
+            border-color: var(--accent-color);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-card {
+            background: #252525;
+            border: 1px solid var(--border-color);
+            padding: 18px 20px;
+            border-radius: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .skill-info h3 {
+            font-size: 0.95rem;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .skill-info p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .skill-rating {
+            display: flex;
+            gap: 4px;
+        }
+
+        .star {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #3a3a3a;
+        }
+
+        .star.filled {
+            background: var(--accent-color);
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+        }
+
         /* Tab Content Control */
         .tab-pane { display: none; }
         .tab-pane.active { display: block; }
@@ -297,6 +368,7 @@
             .profile-grid { grid-template-columns: 1fr; }
             .navbar { flex-direction: column; gap: 15px; }
             .main-bio-card h1 { font-size: 2.2rem; }
+            .skills-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -350,7 +422,7 @@
             </div>
         </div>
 
-        <!-- Tab 2: Education (Timeline Layout) -->
+        <!-- Tab 2: Education -->
         <div id="education" class="tab-pane">
             <div class="main-bio-card">
                 <span class="tag-cv">PENDIDIKAN</span>
@@ -390,17 +462,211 @@
 
         <!-- Tab 3: Keahlian -->
         <div id="keahlian" class="tab-pane">
-            <div class="main-bio-card">
+            <div class="main-bio-card" style="max-width: 100%;">
                 <span class="tag-cv">KEMAMPUAN</span>
-                <h1 style="font-size: 2rem; margin-bottom: 20px;">Kemampuan IT</h1>
-                <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
-                    <span style="background: #2d2d2d; color: #f3f4f6; padding: 8px 16px; border-radius: 20px; font-weight: 500;">Visual C/C++</span>
-                    <span style="background: #2d2d2d; color: #f3f4f6; padding: 8px 16px; border-radius: 20px; font-weight: 500;">Python</span>
-                    <span style="background: #2d2d2d; color: #f3f4f6; padding: 8px 16px; border-radius: 20px; font-weight: 500;">HTML/CSS/JS</span>
-                    <span style="background: #2d2d2d; color: #f3f4f6; padding: 8px 16px; border-radius: 20px; font-weight: 500;">Flutter</span>
-                    <span style="background: #2d2d2d; color: #f3f4f6; padding: 8px 16px; border-radius: 20px; font-weight: 500;">OpenCV</span>
-                    <span style="background: #2d2d2d; color: #f3f4f6; padding: 8px 16px; border-radius: 20px; font-weight: 500;">MySQL</span>
-                    <span style="background: #2d2d2d; color: #f3f4f6; padding: 8px 16px; border-radius: 20px; font-weight: 500;">Tensorflow</span>
+                <h1 style="font-size: 2rem; margin-bottom: 5px;">Keahlian yang Dikuasai</h1>
+                <p class="bio-text" style="margin-top: 0; margin-bottom: 10px;">Pilih kategori untuk memfilter keahlian berdasarkan tingkat penguasaan.</p>
+                
+                <!-- Filter Kategori -->
+                <div class="filter-container">
+                    <button class="filter-btn active" onclick="filterSkills('all')">ALL</button>
+                    <button class="filter-btn" onclick="filterSkills('bahasa')">Bahasa & Pendukung</button>
+                    <button class="filter-btn" onclick="filterSkills('hardware')">Hardware & IoT</button>
+                    <button class="filter-btn" onclick="filterSkills('software')">Software & Programming</button>
+                </div>
+
+                <!-- Grid Keahlian -->
+                <div class="skills-grid">
+                    <!-- 1 -->
+                    <div class="skill-card" data-category="bahasa">
+                        <div class="skill-info">
+                            <h3>Bahasa Inggris</h3>
+                            <p>Bahasa</p>
+                        </div>
+                        <div class="skill-rating">
+                            <span class="star filled"></span><span class="star filled"></span><span class="star"></span><span class="star"></span>
+                        </div>
+                    </div>
+                    <!-- 2 -->
+                    <div class="skill-card" data-category="hardware">
+                        <div class="skill-info">
+                            <h3>Rangkaian Listrik & Elektronik</h3>
+                            <p>Hardware</p>
+                        </div>
+                        <div class="skill-rating">
+                            <span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star"></span>
+                        </div>
+                    </div>
+                    <!-- 3 -->
+                    <div class="skill-card" data-category="software">
+                        <div class="skill-info">
+                            <h3>Flutter Development</h3>
+                            <p>Software</p>
+                        </div>
+                        <div class="skill-rating">
+                            <span class="star filled"></span><span class="star filled"></span><span class="star"></span><span class="star"></span>
+                        </div>
+                    </div>
+                    <!-- 4 -->
+                    <div class="skill-card" data-category="software">
+                        <div class="skill-info">
+                            <h3>Database (MySQL & PostgreSQL)</h3>
+                            <p>Software / Database</p>
+                        </div>
+                        <div class="skill-rating">
+                            <span class="star filled"></span><span class="star filled"></span><span class="star"></span><span class="star"></span>
+                        </div>
+                    </div>
+                    <!-- 5 -->
+                    <div class="skill-card" data-category="software">
+                        <div class="skill-info">
+                            <h3>Supabase</h3>
+                            <p>Software / Backend</p>
+                        </div>
+                        <div class="skill-rating">
+                            <span class="star filled"></span><span class="star filled"></span><span class="star"></span><span class="star"></span>
+                        </div>
+                    </div>
+                    <!-- 6 -->
+                    <div class="skill-card" data-category="software">
+                        <div class="skill-info">
+                            <h3>Git & GitHub</h3>
+                            <p>Software / Tools</p>
+                        </div>
+                        <div class="skill-rating">
+                            <span class="star filled"></span><span class="star filled"></span><span class="star"></span><span class="star"></span>
+                        </div>
+                    </div>
+                    <!-- 7 -->
+                    <div class="skill-card" data-category="software">
+                        <div class="skill-info">
+                            <h3>C / C++ Programming</h3>
+                            <p>Programming</p>
+                        </div>
+                        <div class="skill-rating">
+                            <span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star"></span>
+                        </div>
+                    </div>
+                    <!-- 8 -->
+                    <div class="skill-card" data-category="software">
+                        <div class="skill-info">
+                            <h3>Python Programming</h3>
+                            <p>Programming</p>
+                        </div>
+                        <div class="skill-rating">
+                            <span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star"></span>
+                        </div>
+                    </div>
+                    <!-- 9 -->
+                    <div class="skill-card" data-category="hardware">
+                        <div class="skill-info">
+                            <h3>Mikrokontroler & Embedded System</h3>
+                            <p>Hardware / IoT</p>
+                        </div>
+                        <div class="skill-rating">
+                            <span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star filled"></span>
+                        </div>
+                    </div>
+                    <!-- 10 -->
+                    <div class="skill-card" data-category="hardware">
+                        <div class="skill-info">
+                            <h3>Rangkaian Sensor & Aktuator</h3>
+                            <p>Hardware</p>
+                        </div>
+                        <div class="skill-rating">
+                            <span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star"></span>
+                        </div>
+                    </div>
+                    <!-- 11 -->
+                    <div class="skill-card" data-category="hardware">
+                        <div class="skill-info">
+                            <h3>Internet Of Things Development</h3>
+                            <p>Hardware / IoT</p>
+                        </div>
+                        <div class="skill-rating">
+                            <span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star filled"></span>
+                        </div>
+                    </div>
+                    <!-- 12 -->
+                    <div class="skill-card" data-category="hardware">
+                        <div class="skill-info">
+                            <h3>Soldering (SMD / Through Hole)</h3>
+                            <p>Hardware</p>
+                        </div>
+                        <div class="skill-rating">
+                            <span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star filled"></span>
+                        </div>
+                    </div>
+                    <!-- 13 -->
+                    <div class="skill-card" data-category="hardware">
+                        <div class="skill-info">
+                            <h3>PCB Design & Circuit Analysis</h3>
+                            <p>Hardware</p>
+                        </div>
+                        <div class="skill-rating">
+                            <span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star"></span>
+                        </div>
+                    </div>
+                    <!-- 14 -->
+                    <div class="skill-card" data-category="hardware">
+                        <div class="skill-info">
+                            <h3>FPGA Development</h3>
+                            <p>Hardware</p>
+                        </div>
+                        <div class="skill-rating">
+                            <span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star"></span>
+                        </div>
+                    </div>
+                    <!-- 15 -->
+                    <div class="skill-card" data-category="software">
+                        <div class="skill-info">
+                            <h3>3D Design</h3>
+                            <p>Software</p>
+                        </div>
+                        <div class="skill-rating">
+                            <span class="star filled"></span><span class="star filled"></span><span class="star"></span><span class="star"></span>
+                        </div>
+                    </div>
+                    <!-- 16 -->
+                    <div class="skill-card" data-category="hardware">
+                        <div class="skill-info">
+                            <h3>Computer Networking</h3>
+                            <p>Hardware / Network</p>
+                        </div>
+                        <div class="skill-rating">
+                            <span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star"></span>
+                        </div>
+                    </div>
+                    <!-- 17 -->
+                    <div class="skill-card" data-category="software">
+                        <div class="skill-info">
+                            <h3>Image Processing & Computer Vision</h3>
+                            <p>Software</p>
+                        </div>
+                        <div class="skill-rating">
+                            <span class="star filled"></span><span class="star filled"></span><span class="star"></span><span class="star"></span>
+                        </div>
+                    </div>
+                    <!-- 18 -->
+                    <div class="skill-card" data-category="software">
+                        <div class="skill-info">
+                            <h3>MATLAB & Simulink</h3>
+                            <p>Software</p>
+                        </div>
+                        <div class="skill-rating">
+                            <span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star"></span>
+                        </div>
+                    </div>
+                    <!-- 19 -->
+                    <div class="skill-card" data-category="software">
+                        <div class="skill-info">
+                            <h3>Graphic Design</h3>
+                            <p>Software</p>
+                        </div>
+                        <div class="skill-rating">
+                            <span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -431,6 +697,24 @@
             }
             document.getElementById(tabName).classList.add("active");
             evt.currentTarget.classList.add("active");
+        }
+
+        function filterSkills(category) {
+            let cards = document.getElementsByClassName("skill-card");
+            let buttons = document.getElementsByClassName("filter-btn");
+
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+            event.currentTarget.classList.add("active");
+
+            for (let i = 0; i < cards.length; i++) {
+                if (category === 'all' || cards[i].getAttribute('data-category') === category) {
+                    cards[i].style.display = "flex";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
         }
     </script>
 </body>
