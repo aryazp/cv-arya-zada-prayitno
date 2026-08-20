@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Arya Zada Prayitno</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #f1c40f;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+            --white: #ffffff;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; }
+        .container { max-width: 900px; margin: 20px auto; padding: 20px; }
+        
+        /* Header */
+        header { background: var(--primary-color); color: var(--white); padding: 40px; border-radius: 15px; text-align: center; margin-bottom: 20px; }
+        header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        
+        /* Sections */
+        section { background: var(--white); padding: 30px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h2 { border-bottom: 3px solid var(--accent-color); display: inline-block; margin-bottom: 20px; color: var(--primary-color); }
+        
+        /* Grid layout for Desktop */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        
+        /* List & Items */
+        ul { list-style: none; }
+        li { padding: 5px 0; border-bottom: 1px solid #eee; }
+        
+        /* Responsive */
+        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Arya Zada Prayitno</h1>
+            <p>D4 Teknik Komputer | PENS</p>
+        </header>
+
+        <section id="bio">
+            <h2>Data Pribadi</h2>
+            <p><strong>Tempat, Tgl Lahir:</strong> Surabaya, 17 Januari 2005</p>
+            <p><strong>E-Mail:</strong> aryazp@ce.student.pens.ac.id</p>
+            <p><strong>Handphone:</strong> 081359331502</p>
+        </section>
+
+        <div class="grid">
+            <section id="education">
+                <h2>Riwayat Pendidikan</h2>
+                <ul>
+                    <li>2024 - Sekarang: PENS</li>
+                    <li>2021 - 2024: SMK PGRI 1 Ngawi</li>
+                    <li>2018 - 2021: MTsN 6 Ngawi</li>
+                </ul>
+            </section>
+            <section id="org">
+                <h2>Pengalaman Organisasi</h2>
+                <ul>
+                    <li>Staff Muda Dep. Kewirausahaan - HMCE</li>
+                    <li>KORLAP - PKKMB x TECHNOGEAR</li>
+                    <li>KOMDIS - LKMM TD PENS</li>
+                </ul>
+            </section>
+        </div>
+
+        <section id="skills">
+            <h2>Kemampuan IT</h2>
+            <p>Visual C/C++, Python, HTML/CSS/JS, Flutter, OpenCV, MySQL, Tensorflow, dll.</p>
+        </section>
+    </div>
+</body>
+</html>
