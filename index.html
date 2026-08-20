@@ -77,13 +77,14 @@
             padding: 6px;
             border-radius: 14px;
             border: 1px solid var(--card-border);
+            flex-wrap: wrap;
         }
 
         .nav-btn {
             background: transparent;
             border: none;
             color: var(--text-muted);
-            padding: 10px 20px;
+            padding: 10px 18px;
             border-radius: 10px;
             font-weight: 600;
             font-size: 0.9rem;
@@ -377,6 +378,89 @@
             box-shadow: 0 0 8px var(--accent-glow);
         }
 
+        /* Projects Section Style */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            border-color: rgba(56, 189, 248, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .project-img-container {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            background: #000;
+            position: relative;
+        }
+
+        .project-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-img-container img {
+            transform: scale(1.03);
+        }
+
+        .project-info {
+            padding: 24px;
+        }
+
+        .project-info h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .project-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .project-tools-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            font-family: 'Fira Code', monospace;
+            text-transform: uppercase;
+        }
+
+        .tools-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tool-chip {
+            background: var(--accent-glow);
+            color: var(--accent);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-family: 'Fira Code', monospace;
+            font-weight: 500;
+        }
+
         /* Experience Checklist Stack Custom Style */
         .stack-section {
             margin-top: 25px;
@@ -446,6 +530,7 @@
                 <button class="nav-btn active" onclick="switchTab(event, 'profile')">Profile</button>
                 <button class="nav-btn" onclick="switchTab(event, 'education')">Education</button>
                 <button class="nav-btn" onclick="switchTab(event, 'keahlian')">Skills</button>
+                <button class="nav-btn" onclick="switchTab(event, 'projects')">Projects</button>
                 <button class="nav-btn" onclick="switchTab(event, 'experience')">Experience</button>
             </div>
         </header>
@@ -591,7 +676,54 @@
                     </div>
                 </div>
 
-                <!-- Tab 4: Experience -->
+                <!-- Tab 4: Projects -->
+                <div id="projects" class="tab-pane">
+                    <div class="section-header">
+                        <h1 style="font-size: 2rem;">Featured Projects</h1>
+                    </div>
+
+                    <div class="projects-grid">
+                        <!-- Project Item 1 -->
+                        <div class="project-card">
+                            <div class="project-img-container">
+                                <!-- Ganti "project1.jpg" dengan path foto proyek Anda -->
+                                <img src="project1.jpg" alt="Project 1">
+                            </div>
+                            <div class="project-info">
+                                <h3>Sistem Otomasi & Monitoring IoT</h3>
+                                <p>Pengembangan sistem pemantauan jarak jauh berbasis mikrokontroler dengan integrasi sensor lingkungan dan aktuator otomatis untuk kontrol real-time.</p>
+                                <div class="project-tools-title">Alat & Teknologi yang Digunakan:</div>
+                                <div class="tools-chips">
+                                    <span class="tool-chip">ESP32 / ESP8266</span>
+                                    <span class="tool-chip">C++ (Arduino IDE)</span>
+                                    <span class="tool-chip">Sensor DHT22 / MQ</span>
+                                    <span class="tool-chip">MQTT Protocol</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project Item 2 -->
+                        <div class="project-card">
+                            <div class="project-img-container">
+                                <!-- Ganti "project2.jpg" dengan path foto proyek Anda -->
+                                <img src="project2.jpg" alt="Project 2">
+                            </div>
+                            <div class="project-info">
+                                <h3>Computer Vision Object Detection</h3>
+                                <p>Sistem pengolahan citra digital untuk deteksi objek otomatis menggunakan kamera, dirancang guna mendukung sistem navigasi atau sortir berbasis visual.</p>
+                                <div class="project-tools-title">Alat & Teknologi yang Digunakan:</div>
+                                <div class="tools-chips">
+                                    <span class="tool-chip">Python</span>
+                                    <span class="tool-chip">OpenCV</span>
+                                    <span class="tool-chip">Raspberry Pi</span>
+                                    <span class="tool-chip">USB Camera Module</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 5: Experience -->
                 <div id="experience" class="tab-pane">
                     <div class="section-header">
                         <h1 style="font-size: 2rem;">Organization & Activities</h1>
