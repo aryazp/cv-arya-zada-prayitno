@@ -5,249 +5,267 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Arya Zada Prayitno</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #262626;
-            --accent-color: #ffffff;
-            --bg-color: #121212;
-            --card-bg: #1e1e1e;
-            --sidebar-bg: #1e1e1e;
-            --text-color: #f3f4f6;
-            --text-muted: #9ca3af;
-            --border-color: #2d2d2d;
+            --bg-color: #08090d;
+            --card-bg: rgba(18, 20, 28, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.15);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.3s ease; }
-        
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: var(--bg-color); 
-            color: var(--text-color); 
-            line-height: 1.6; 
-            padding: 20px;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
-        .container { 
-            max-width: 1100px; 
-            margin: 0 auto; 
-            padding: 10px; 
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(129, 140, 248, 0.06) 0%, transparent 40%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            overflow-x: hidden;
         }
 
-        /* Top Navigation Bar */
-        .navbar {
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header / Navbar Style */
+        header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 15px 30px;
-            border-radius: 16px;
-            margin-bottom: 25px;
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            padding: 18px 32px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .logo {
-            font-size: 1.25rem;
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: -0.5px;
             color: white;
-            letter-spacing: 1px;
-            background: linear-gradient(135deg, #fff, #9ca3af);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        }
+
+        .brand span {
+            color: var(--accent);
+            font-family: 'Fira Code', monospace;
         }
 
         .nav-tabs {
             display: flex;
             gap: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 6px;
+            border-radius: 14px;
+            border: 1px solid var(--card-border);
         }
 
         .nav-btn {
             background: transparent;
             border: none;
             color: var(--text-muted);
-            padding: 8px 18px;
+            padding: 10px 20px;
             border-radius: 10px;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             cursor: pointer;
+            transition: var(--transition);
         }
 
         .nav-btn:hover {
             color: white;
-            background: rgba(255, 255, 255, 0.05);
         }
 
         .nav-btn.active {
-            background-color: #2d2d2d;
-            color: white;
+            background: var(--accent);
+            color: #0f172a;
+            box-shadow: 0 0 20px var(--accent-glow);
         }
 
-        /* Main Grid Layout (2 Columns) */
-        .profile-grid {
+        /* Layout Grid */
+        .dashboard-grid {
             display: grid;
-            grid-template-columns: 2fr 1.2fr;
-            gap: 25px;
+            grid-template-columns: 360px 1fr;
+            gap: 30px;
         }
 
-        /* Left Content Panel */
-        .main-bio-card {
+        /* Sidebar Profile Card */
+        .profile-sidebar {
             background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
-
-        .tag-cv {
-            display: inline-block;
-            background: #2d2d2d;
-            color: var(--text-muted);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-        }
-
-        .main-bio-card h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: #ffffff;
-            line-height: 1.1;
-            margin-bottom: 5px;
-        }
-
-        .main-bio-card h1 span {
-            color: var(--accent-color);
-            display: block;
-        }
-
-        .bio-text {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            margin: 25px 0;
-            line-height: 1.8;
-        }
-
-        /* Motto Box */
-        .motto-box {
-            border-left: 4px solid var(--accent-color);
-            background: rgba(255, 255, 255, 0.03);
-            padding: 20px;
-            border-radius: 0 12px 12px 0;
-            margin: 25px 0;
-        }
-
-        .motto-title {
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            color: var(--accent-color);
-            margin-bottom: 8px;
-        }
-
-        .motto-text {
-            font-style: italic;
-            color: var(--text-color);
-            font-size: 0.95rem;
-        }
-
-        /* Right Sidebar Profile Card */
-        .sidebar-card {
-            background: var(--sidebar-bg);
-            border: 1px solid var(--border-color);
-            padding: 30px;
-            border-radius: 20px;
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 35px 25px;
             text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             height: fit-content;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
-        .photo-wrapper {
-            width: 150px;
-            height: 180px;
+        .avatar-container {
+            width: 140px;
+            height: 160px;
             margin: 0 auto 20px auto;
-            border-radius: 16px;
+            border-radius: 20px;
             overflow: hidden;
-            border: 3px solid var(--border-color);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-            background: #2d2d2d;
+            border: 2px solid var(--card-border);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            position: relative;
         }
 
-        .photo-wrapper img {
+        .avatar-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .sidebar-card h3 {
-            font-size: 1.3rem;
-            color: white;
-            margin-bottom: 5px;
+        .profile-sidebar h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 6px;
         }
 
-        .sidebar-card p {
+        .profile-sidebar p {
             color: var(--text-muted);
             font-size: 0.9rem;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
 
-        .nrp-text {
-            color: var(--accent-color);
+        .nrp-badge {
+            display: inline-block;
+            background: var(--accent-glow);
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
             font-weight: 600;
-            font-size: 0.95rem;
-            margin-bottom: 25px;
+            margin: 15px 0 25px 0;
+            border: 1px solid rgba(56, 189, 248, 0.2);
         }
 
-        /* Contact Action Buttons */
-        .contact-links {
+        .social-links {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
 
-        .contact-btn {
+        .social-btn {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
             padding: 12px;
-            background-color: #2d2d2d;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--card-border);
             color: white;
             text-decoration: none;
             border-radius: 12px;
             font-weight: 600;
             font-size: 0.9rem;
-            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
         }
 
-        .contact-btn:hover {
-            background-color: var(--accent-color);
-            color: #121212;
+        .social-btn:hover {
+            background: var(--accent);
+            color: #0f172a;
+            border-color: var(--accent);
             transform: translateY(-2px);
         }
 
-        /* Timeline Style */
+        /* Main Content Panel */
+        .content-panel {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .section-header {
+            margin-bottom: 30px;
+        }
+
+        .tag {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .content-panel h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .bio-description {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.05), rgba(255, 255, 255, 0.01));
+            border-left: 4px solid var(--accent);
+            padding: 24px;
+            border-radius: 0 16px 16px 0;
+            border-top: 1px solid var(--card-border);
+            border-right: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .quote-box p {
+            font-family: 'Fira Code', monospace;
+            font-style: italic;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        /* Timeline Design */
         .timeline {
             position: relative;
-            padding-left: 25px;
-            margin-top: 20px;
+            padding-left: 30px;
         }
 
         .timeline::before {
             content: '';
             position: absolute;
             left: 7px;
-            top: 5px;
-            bottom: 5px;
+            top: 8px;
+            bottom: 8px;
             width: 2px;
-            background: var(--border-color);
+            background: var(--card-border);
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
         .timeline-item:last-child {
@@ -256,29 +274,31 @@
 
         .timeline-dot {
             position: absolute;
-            left: -25px;
+            left: -30px;
             top: 5px;
-            width: 14px;
-            height: 14px;
+            width: 16px;
+            height: 16px;
+            background: var(--bg-color);
+            border: 3px solid var(--accent);
             border-radius: 50%;
-            background: var(--accent-color);
-            border: 3px solid var(--card-bg);
+            box-shadow: 0 0 10px var(--accent-glow);
         }
 
-        .timeline-badge {
+        .timeline-date {
             display: inline-block;
-            background: #2d2d2d;
-            color: var(--accent-color);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            background: var(--accent-glow);
+            padding: 4px 10px;
+            border-radius: 6px;
             margin-bottom: 8px;
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(56, 189, 248, 0.1);
         }
 
         .timeline-content h3 {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
+            font-weight: 700;
             color: white;
             margin-bottom: 4px;
         }
@@ -288,414 +308,362 @@
             font-size: 0.9rem;
         }
 
-        /* Badges list for Seminars & Tools */
-        .badge-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 15px;
-        }
-
-        .custom-badge {
-            background: #252525;
-            color: var(--text-color);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            border: 1px solid var(--border-color);
-            font-weight: 500;
-        }
-
-        /* Keahlian Styles */
-        .filter-container {
+        /* Skills Filter & Grid */
+        .filter-group {
             display: flex;
             gap: 10px;
-            margin: 20px 0 30px 0;
+            margin-bottom: 30px;
             flex-wrap: wrap;
         }
 
-        .filter-btn {
-            background: #2d2d2d;
-            border: 1px solid var(--border-color);
+        .filter-chip {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--card-border);
             color: var(--text-muted);
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-weight: 600;
+            padding: 8px 18px;
+            border-radius: 12px;
             font-size: 0.85rem;
+            font-weight: 600;
             cursor: pointer;
+            transition: var(--transition);
         }
 
-        .filter-btn:hover, .filter-btn.active {
-            background: var(--accent-color);
-            color: #121212;
-            border-color: var(--accent-color);
+        .filter-chip:hover, .filter-chip.active {
+            background: var(--accent);
+            color: #0f172a;
+            border-color: var(--accent);
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 16px;
         }
 
-        .skill-card {
-            background: #252525;
-            border: 1px solid var(--border-color);
+        .skill-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--card-border);
             padding: 18px 20px;
-            border-radius: 14px;
+            border-radius: 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: var(--transition);
         }
 
-        .skill-info h3 {
+        .skill-box:hover {
+            border-color: rgba(56, 189, 248, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .skill-title h4 {
             font-size: 0.95rem;
+            font-weight: 600;
             color: white;
             margin-bottom: 4px;
         }
 
-        .skill-info p {
+        .skill-title span {
             font-size: 0.75rem;
             color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-family: 'Fira Code', monospace;
         }
 
-        .skill-rating {
+        .dots {
             display: flex;
-            gap: 4px;
+            gap: 5px;
         }
 
-        .star {
-            width: 10px;
-            height: 10px;
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            background: #3a3a3a;
         }
 
-        .star.filled {
-            background: var(--accent-color);
-            box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+        .dot.active {
+            background: var(--accent);
+            box-shadow: 0 0 8px var(--accent-glow);
         }
 
-        /* Tab Content Control */
+        /* Badges / Chips container */
+        .badge-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--card-border);
+            color: var(--text-main);
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-family: 'Fira Code', monospace;
+            font-weight: 500;
+        }
+
+        /* Tab Switch Control */
         .tab-pane { display: none; }
         .tab-pane.active { display: block; }
 
-        @media (max-width: 900px) {
-            .profile-grid { grid-template-columns: 1fr; }
-            .navbar { flex-direction: column; gap: 15px; }
-            .main-bio-card h1 { font-size: 2.2rem; }
-            .skills-grid { grid-template-columns: 1fr; }
+        /* Responsive Breakpoints */
+        @media(max-width: 900px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .content-panel h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- Top Navigation -->
-        <nav class="navbar">
-            <div class="logo">ARYA.CV</div>
+        <!-- Header Nav -->
+        <header>
+            <div class="brand">
+                <i class="fas fa-terminal" style="color: var(--accent);"></i>
+                ARYA<span>.ZADA</span>
+            </div>
             <div class="nav-tabs">
                 <button class="nav-btn active" onclick="switchTab(event, 'profile')">Profile</button>
                 <button class="nav-btn" onclick="switchTab(event, 'education')">Education</button>
-                <button class="nav-btn" onclick="switchTab(event, 'keahlian')">Keahlian</button>
+                <button class="nav-btn" onclick="switchTab(event, 'keahlian')">Skills</button>
                 <button class="nav-btn" onclick="switchTab(event, 'experience')">Experience</button>
             </div>
-        </nav>
+        </header>
 
-        <!-- Tab 1: Profile -->
-        <div id="profile" class="tab-pane active">
-            <div class="profile-grid">
-                <div class="main-bio-card">
-                    <span class="tag-cv">CURRICULUM VITAE</span>
-                    <h1>Arya Zada <span>Prayitno</span></h1>
-                    
-                    <p class="bio-text">
+        <div class="dashboard-grid">
+            <!-- Sidebar (Tetap tampil di semua tab agar profil konsisten) -->
+            <div class="profile-sidebar">
+                <div class="avatar-container">
+                    <img src="foto.jpg" alt="Arya Zada Prayitno">
+                </div>
+                <h2>Arya Zada P.</h2>
+                <p>Computer Engineering</p>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">PENS Surabaya</p>
+                <div class="nrp-badge">NRP: 3224600052</div>
+
+                <div class="social-links">
+                    <a href="mailto:aryazada28@gmail.com" class="social-btn"><i class="fas fa-envelope"></i> Email Me</a>
+                    <a href="https://wa.me/6281359331502" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="https://github.com/aryazp" target="_blank" class="social-btn"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/arya-zada-11b850411/" target="_blank" class="social-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                </div>
+            </div>
+
+            <!-- Main Content Panels -->
+            <div class="content-panel">
+                
+                <!-- Tab 1: Profile -->
+                <div id="profile" class="tab-pane active">
+                    <div class="section-header">
+                        <span class="tag">// CURRICULUM VITAE</span>
+                        <h1>Embedded System & IoT Enthusiast</h1>
+                    </div>
+                    <p class="bio-text bio-description">
                         Mahasiswa D4 Teknik Komputer PENS yang memiliki minat besar di bidang rekayasa sistem, dengan spesialisasi embedded system, IoT, dan computer vision. Memiliki pendekatan hands-on yang kuat dari tahap perancangan arsitektur perangkat keras hingga implementasi software. Teruji dalam pengujian dan troubleshooting jaringan, serta berfokus pada pengembangan solusi otomasi terukur untuk menyelesaikan problem riil industri.
                     </p>
-
-                    <div class="motto-box">
-                        <div class="motto-title">MOTTO</div>
-                        <div class="motto-text">"Less theory, more execution; engineering scalable solutions for real-world problems."</div>
+                    <div class="quote-box">
+                        <p>"Less theory, more execution; engineering scalable solutions for real-world problems."</p>
                     </div>
                 </div>
 
-                <div class="sidebar-card">
-                    <div class="photo-wrapper">
-                        <img src="foto.jpg" alt="Arya Zada Prayitno">
+                <!-- Tab 2: Education -->
+                <div id="education" class="tab-pane">
+                    <div class="section-header">
+                        <span class="tag">// ACADEMIC TRACK</span>
+                        <h1 style="font-size: 2rem;">Riwayat Pendidikan</h1>
                     </div>
-                    <h3>Computer Engineering</h3>
-                    <p>Student D4 Teknik Komputer</p>
-                    <p>Politeknik Elektronika Negeri Surabaya</p>
-                    <div class="nrp-text">NRP: 3224600052</div>
-
-                    <div class="contact-links">
-                        <a href="mailto:aryazada28@gmail.com" class="contact-btn"><i class="fas fa-envelope"></i> Email</a>
-                        <a href="https://wa.me/6281359331502" target="_blank" class="contact-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                        <a href="https://github.com/aryazp" target="_blank" class="contact-btn"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="https://www.linkedin.com/in/arya-zada-11b850411/" target="_blank" class="contact-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tab 2: Education -->
-        <div id="education" class="tab-pane">
-            <div class="main-bio-card">
-                <span class="tag-cv">PENDIDIKAN</span>
-                <h1 style="font-size: 2rem; margin-bottom: 5px;">Riwayat Pendidikan</h1>
-                <p class="bio-text" style="margin-top: 0; margin-bottom: 30px;">Perjalanan pendidikan formal yang telah ditempuh.</p>
-                
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-badge">2024 — Sekarang</div>
-                        <div class="timeline-content">
-                            <h3>Politeknik Elektronika Negeri Surabaya</h3>
-                            <p>Perguruan Tinggi Negeri - D4 Teknik Komputer</p>
+                    <div class="timeline" style="margin-top: 20px;">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-date">2024 — Sekarang</span>
+                            <div class="timeline-content">
+                                <h3>Politeknik Elektronika Negeri Surabaya</h3>
+                                <p>D4 Teknik Komputer (PTN)</p>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-badge">2021 — 2024</div>
-                        <div class="timeline-content">
-                            <h3>SMK PGRI 1 Ngawi</h3>
-                            <p>Sekolah Menengah Kejuruan</p>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-date">2021 — 2024</span>
+                            <div class="timeline-content">
+                                <h3>SMK PGRI 1 Ngawi</h3>
+                                <p>Sekolah Menengah Kejuruan</p>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-badge">2018 — 2021</div>
-                        <div class="timeline-content">
-                            <h3>MTsN 6 Ngawi</h3>
-                            <p>Sekolah Menengah Pertama</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tab 3: Keahlian -->
-        <div id="keahlian" class="tab-pane">
-            <div class="main-bio-card" style="max-width: 100%;">
-                <span class="tag-cv">KEMAMPUAN</span>
-                <h1 style="font-size: 2rem; margin-bottom: 5px;">Keahlian yang Dikuasai</h1>
-                <p class="bio-text" style="margin-top: 0; margin-bottom: 10px;">Pilih kategori untuk memfilter keahlian berdasarkan tingkat penguasaan.</p>
-                
-                <!-- Filter Kategori -->
-                <div class="filter-container">
-                    <button class="filter-btn active" onclick="filterSkills('all')">ALL</button>
-                    <button class="filter-btn" onclick="filterSkills('bahasa')">Bahasa & Pendukung</button>
-                    <button class="filter-btn" onclick="filterSkills('hardware')">Hardware & IoT</button>
-                    <button class="filter-btn" onclick="filterSkills('software')">Software & Programming</button>
-                </div>
-
-                <!-- Grid Keahlian -->
-                <div class="skills-grid">
-                    <div class="skill-card" data-category="bahasa">
-                        <div class="skill-info"><h3>Bahasa Inggris</h3><p>Bahasa</p></div>
-                        <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star"></span><span class="star"></span></div>
-                    </div>
-                    <div class="skill-card" data-category="hardware">
-                        <div class="skill-info"><h3>Rangkaian Listrik & Elektronik</h3><p>Hardware</p></div>
-                        <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star"></span><span class="star"></span></div>
-                    </div>
-                    <div class="skill-card" data-category="software">
-                        <div class="skill-info"><h3>Java Programming</h3><p>Programming</p></div>
-                        <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star"></span><span class="star"></span></div>
-                    </div>
-                    <div class="skill-card" data-category="software">
-                        <div class="skill-info"><h3>C / C++ Programming</h3><p>Programming</p></div>
-                        <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star"></span><span class="star"></span></div>
-                    </div>
-                    <div class="skill-card" data-category="software">
-                        <div class="skill-info"><h3>Python Programming</h3><p>Programming</p></div>
-                        <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star"></span><span class="star"></span></div>
-                    </div>
-                    <div class="skill-card" data-category="hardware">
-                        <div class="skill-info"><h3>Mikrokontroler & Embedded System</h3><p>Hardware / IoT</p></div>
-                        <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star"></span><span class="star"></span></div>
-                    </div>
-                    <div class="skill-card" data-category="hardware">
-                        <div class="skill-info"><h3>Rangkaian Sensor & Aktuator</h3><p>Hardware</p></div>
-                        <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star"></span></div>
-                    </div>
-                    <div class="skill-card" data-category="hardware">
-                        <div class="skill-info"><h3>Internet Of Things</h3><p>Hardware / IoT</p></div>
-                        <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star"></span></div>
-                    </div>
-                    <div class="skill-card" data-category="hardware">
-                        <div class="skill-info"><h3>Network Engineering</h3><p>Hardware / Network</p></div>
-                        <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star"></span></div>
-                    </div>
-                    <div class="skill-card" data-category="software">
-                        <div class="skill-info"><h3>Database (MySQL)</h3><p>Software / Database</p></div>
-                        <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star"></span><span class="star"></span></div>
-                    </div>
-                    <div class="skill-card" data-category="hardware">
-                        <div class="skill-info"><h3>Soldering (SMD/Through-Hole)</h3><p>Hardware</p></div>
-                        <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star filled"></span></div>
-                    </div>
-                    <div class="skill-card" data-category="software">
-                        <div class="skill-info"><h3>Image Processing & Computer Vision</h3><p>Software</p></div>
-                        <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star"></span><span class="star"></span></div>
-                    </div>
-                    <div class="skill-card" data-category="software">
-                        <div class="skill-info"><h3>MATLAB & Simulink</h3><p>Software</p></div>
-                        <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star"></span><span class="star"></span></div>
-                    </div>
-                    <div class="skill-card" data-category="software">
-                        <div class="skill-info"><h3>Video Editing & Visual Effects</h3><p>Software</p></div>
-                        <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star"></span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tab 4: Experience (Diperbarui Sesuai Gambar 3) -->
-        <div id="experience" class="tab-pane">
-            <div class="main-bio-card">
-                <span class="tag-cv">PENGALAMAN & AKTIVITAS</span>
-                <h1 style="font-size: 2rem; margin-bottom: 25px;">Organization & Activities</h1>
-                
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-badge">2026 — Sekarang</div>
-                        <div class="timeline-content">
-                            <h3>Staff Muda Dept. Kewirausahaan</h3>
-                            <p>Himpunan Mahasiswa Computer Engineering (HMCE)</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-badge">2026 — Sekarang</div>
-                        <div class="timeline-content">
-                            <h3>Wakil Kepala Divisi Elektrikal Tim Robot Terbang</h3>
-                            <p>Cakrwala Skala (CAKSA)</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-badge">2026</div>
-                        <div class="timeline-content">
-                            <h3>Pembicara Pengenalan Tim Robot PENS</h3>
-                            <p>Computer Engineering Orientation (CEO)</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-badge">2026</div>
-                        <div class="timeline-content">
-                            <h3>Ketua Divisi KORLAP CEO 2025</h3>
-                            <p>Computer Engineering Orientation (CEO)</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-badge">2025 — 2026</div>
-                        <div class="timeline-content">
-                            <h3>Anggota Divisi Elektrikal Tim Robot Terbang</h3>
-                            <p>Cakrwala Skala (CAKSA)</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-badge">2025 — 2026</div>
-                        <div class="timeline-content">
-                            <h3>Pembicara Pengenalan Tim Robot PENS</h3>
-                            <p>UKM Dirgantara PENS</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-badge">2025 — 2026</div>
-                        <div class="timeline-content">
-                            <h3>Pemateri GCS & Flight Controller</h3>
-                            <p>UKM Dirgantara PENS</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-badge">2025</div>
-                        <div class="timeline-content">
-                            <h3>Panitia Divisi KORLAP Pengenalan Kehidupan Kampus bagi Mahasiswa Baru</h3>
-                            <p>PKKMB x TECHNOGEAR</p>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-date">2018 — 2021</span>
+                            <div class="timeline-content">
+                                <h3>MTsN 6 Ngawi</h3>
+                                <p>Sekolah Menengah Pertama</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Seminars & Workshops Section -->
-                <h2 style="font-size: 1.5rem; margin: 40px 0 20px 0; color: white;">Seminars & Workshops</h2>
-                <div class="badge-container">
-                    <span class="custom-badge">LKMM Pra TD 2024</span>
-                    <span class="custom-badge">Line Follower Analog Roboholic 2024</span>
-                    <span class="custom-badge">LKMM TD 2024</span>
-                    <span class="custom-badge">Pengaderan CEO Teknik Komputer 2024</span>
-                    <span class="custom-badge">Pelatihan UAV Dirgantara PENS 2025</span>
-                    <span class="custom-badge">Pelatihan K3 Listrik</span>
-                    <span class="custom-badge">Financial Literacy & Job Readiness</span>
-                    <span class="custom-badge">Entrepreneurship & PMW</span>
-                    <span class="custom-badge">GDGoC PENS x UKM SoftDev</span>
+                <!-- Tab 3: Keahlian -->
+                <div id="keahlian" class="tab-pane">
+                    <div class="section-header">
+                        <span class="tag">// EXPERTISE</span>
+                        <h1 style="font-size: 2rem;">Keahlian Teknis</h1>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <button class="filter-chip active" onclick="filterSkills('all')">ALL</button>
+                        <button class="filter-chip" onclick="filterSkills('bahasa')">Bahasa</button>
+                        <button class="filter-chip" onclick="filterSkills('hardware')">Hardware & IoT</button>
+                        <button class="filter-chip" onclick="filterSkills('software')">Software & Programming</button>
+                    </div>
+
+                    <div class="skills-grid">
+                        <div class="skill-box" data-category="bahasa">
+                            <div class="skill-title"><h4>Bahasa Inggris</h4><span>Language</span></div>
+                            <div class="dots"><div class="dot active"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
+                        </div>
+                        <div class="skill-box" data-category="hardware">
+                            <div class="skill-title"><h4>Rangkaian Listrik</h4><span>Hardware</span></div>
+                            <div class="dots"><div class="dot active"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
+                        </div>
+                        <div class="skill-box" data-category="software">
+                            <div class="skill-title"><h4>Java Programming</h4><span>Programming</span></div>
+                            <div class="dots"><div class="dot active"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
+                        </div>
+                        <div class="skill-box" data-category="software">
+                            <div class="skill-title"><h4>C / C++</h4><span>Programming</span></div>
+                            <div class="dots"><div class="dot active"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
+                        </div>
+                        <div class="skill-box" data-category="software">
+                            <div class="skill-title"><h4>Python</h4><span>Programming</span></div>
+                            <div class="dots"><div class="dot active"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
+                        </div>
+                        <div class="skill-box" data-category="hardware">
+                            <div class="skill-title"><h4>Mikrokontroler</h4><span>IoT / HW</span></div>
+                            <div class="dots"><div class="dot active"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
+                        </div>
+                        <div class="skill-box" data-category="hardware">
+                            <div class="skill-title"><h4>Sensor & Aktuator</h4><span>Hardware</span></div>
+                            <div class="dots"><div class="dot active"></div><div class="dot active"></div><div class="dot active"></div><div class="dot"></div></div>
+                        </div>
+                        <div class="skill-box" data-category="hardware">
+                            <div class="skill-title"><h4>Internet of Things</h4><span>IoT</span></div>
+                            <div class="dots"><div class="dot active"></div><div class="dot active"></div><div class="dot active"></div><div class="dot"></div></div>
+                        </div>
+                        <div class="skill-box" data-category="hardware">
+                            <div class="skill-title"><h4>Network Engineering</h4><span>Network</span></div>
+                            <div class="dots"><div class="dot active"></div><div class="dot active"></div><div class="dot active"></div><div class="dot"></div></div>
+                        </div>
+                        <div class="skill-box" data-category="software">
+                            <div class="skill-title"><h4>MySQL Database</h4><span>Database</span></div>
+                            <div class="dots"><div class="dot active"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
+                        </div>
+                        <div class="skill-box" data-category="hardware">
+                            <div class="skill-title"><h4>Soldering</h4><span>Hardware</span></div>
+                            <div class="dots"><div class="dot active"></div><div class="dot active"></div><div class="dot active"></div><div class="dot active"></div></div>
+                        </div>
+                        <div class="skill-box" data-category="software">
+                            <div class="skill-title"><h4>Computer Vision</h4><span>Software</span></div>
+                            <div class="dots"><div class="dot active"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div></div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Software & Tools Section -->
-                <h2 style="font-size: 1.5rem; margin: 40px 0 20px 0; color: white;">Software & Tools</h2>
-                <div class="badge-container">
-                    <span class="custom-badge">C / C++</span>
-                    <span class="custom-badge">HTML</span>
-                    <span class="custom-badge">CSS</span>
-                    <span class="custom-badge">JavaScript</span>
-                    <span class="custom-badge">Python</span>
-                    <span class="custom-badge">MySQL</span>
-                    <span class="custom-badge">PostgreSQL</span>
-                    <span class="custom-badge">FreeRTOS</span>
-                    <span class="custom-badge">Supabase</span>
-                    <span class="custom-badge">Flutter</span>
-                    <span class="custom-badge">OpenCV</span>
-                    <span class="custom-badge">TensorFlow</span>
-                    <span class="custom-badge">Keras</span>
-                    <span class="custom-badge">NumPy</span>
-                    <span class="custom-badge">WordPress</span>
-                    <span class="custom-badge">VHDL</span>
-                    <span class="custom-badge">Verilog</span>
-                    <span class="custom-badge">Windows</span>
-                    <span class="custom-badge">Linux</span>
-                    <span class="custom-badge">Debian</span>
-                    <span class="custom-badge">VS Code</span>
-                    <span class="custom-badge">Xilinx ISE</span>
-                    <span class="custom-badge">Android Studio</span>
-                    <span class="custom-badge">Arduino IDE</span>
-                    <span class="custom-badge">MATLAB</span>
-                    <span class="custom-badge">Cisco Packet Tracer</span>
-                    <span class="custom-badge">Wireshark</span>
-                    <span class="custom-badge">Git & GitHub</span>
-                    <span class="custom-badge">EasyEDA</span>
-                    <span class="custom-badge">Postman</span>
-                    <span class="custom-badge">VirtualBox</span>
-                    <span class="custom-badge">Proteus</span>
-                    <span class="custom-badge">Blender</span>
-                    <span class="custom-badge">Betaflight</span>
-                    <span class="custom-badge">ArduPilot</span>
-                    <span class="custom-badge">Winbox</span>
-                    <span class="custom-badge">STM32CubeIDE</span>
-                    <span class="custom-badge">RoboAnalyzer</span>
-                    <span class="custom-badge">CorelDraw</span>
-                    <span class="custom-badge">Adobe Photoshop</span>
+                <!-- Tab 4: Experience -->
+                <div id="experience" class="tab-pane">
+                    <div class="section-header">
+                        <span class="tag">// BACKGROUND & ACTIVITIES</span>
+                        <h1 style="font-size: 2rem;">Organization & Activity</h1>
+                    </div>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-date">2026 — Sekarang</span>
+                            <div class="timeline-content">
+                                <h3>Staff Muda Dept. Kewirausahaan</h3>
+                                <p>Himpunan Mahasiswa Computer Engineering (HMCE)</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-date">2026 — Sekarang</span>
+                            <div class="timeline-content">
+                                <h3>Wakil Kepala Divisi Elektrikal Tim Robot Terbang</h3>
+                                <p>Cakrwala Skala (CAKSA)</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-date">2026</span>
+                            <div class="timeline-content">
+                                <h3>Pembicara Pengenalan Tim Robot PENS</h3>
+                                <p>Computer Engineering Orientation (CEO)</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-date">2026</span>
+                            <div class="timeline-content">
+                                <h3>Ketua Divisi KORLAP CEO 2025</h3>
+                                <p>Computer Engineering Orientation (CEO)</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-date">2025 — 2026</span>
+                            <div class="timeline-content">
+                                <h3>Anggota Divisi Elektrikal Tim Robot Terbang</h3>
+                                <p>Cakrwala Skala (CAKSA)</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <span class="timeline-date">2025 — 2026</span>
+                            <div class="timeline-content">
+                                <h3>Pemateri GCS & Flight Controller</h3>
+                                <p>UKM Dirgantara PENS</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-size: 1.2rem; margin: 40px 0 15px 0; color: white;">Seminars & Workshops</h3>
+                    <div class="badge-wrap">
+                        <span class="tech-badge">LKMM Pra TD 2024</span>
+                        <span class="tech-badge">Line Follower Analog Roboholic</span>
+                        <span class="tech-badge">LKMM TD 2024</span>
+                        <span class="tech-badge">Pelatihan UAV Dirgantara PENS</span>
+                        <span class="tech-badge">Pelatihan K3 Listrik</span>
+                        <span class="tech-badge">Entrepreneurship & PMW</span>
+                    </div>
+
+                    <h3 style="font-size: 1.2rem; margin: 30px 0 15px 0; color: white;">Software & Tools Stack</h3>
+                    <div class="badge-wrap">
+                        <span class="tech-badge">C/C++</span>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">FreeRTOS</span>
+                        <span class="tech-badge">OpenCV</span>
+                        <span class="tech-badge">TensorFlow</span>
+                        <span class="tech-badge">ArduPilot</span>
+                        <span class="tech-badge">STM32CubeIDE</span>
+                        <span class="tech-badge">Git & GitHub</span>
+                        <span class="tech-badge">Linux / Debian</span>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
 
+    <!-- JavaScript Nav & Filter Control -->
     <script>
         function switchTab(evt, tabName) {
             let panes = document.getElementsByClassName("tab-pane");
@@ -711,8 +679,8 @@
         }
 
         function filterSkills(category) {
-            let cards = document.getElementsByClassName("skill-card");
-            let buttons = document.getElementsByClassName("filter-btn");
+            let cards = document.getElementsByClassName("skill-box");
+            let buttons = document.getElementsByClassName("filter-chip");
 
             for (let i = 0; i < buttons.length; i++) {
                 buttons[i].classList.remove("active");
