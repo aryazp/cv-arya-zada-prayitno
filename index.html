@@ -228,6 +228,66 @@
             transform: translateY(-2px);
         }
 
+        /* Timeline Style untuk Education */
+        .timeline {
+            position: relative;
+            padding-left: 25px;
+            margin-top: 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 5px;
+            bottom: 5px;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -25px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            border: 3px solid var(--card-bg);
+        }
+
+        .timeline-badge {
+            display: inline-block;
+            background: #2d2d2d;
+            color: var(--accent-color);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .timeline-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
         /* Tab Content Control */
         .tab-pane { display: none; }
         .tab-pane.active { display: block; }
@@ -254,10 +314,9 @@
             </div>
         </nav>
 
-        <!-- Tab 1: Profile (Tampilan 2 Kolom dengan Foto & Motto) -->
+        <!-- Tab 1: Profile -->
         <div id="profile" class="tab-pane active">
             <div class="profile-grid">
-                <!-- Kolom Kiri: Deskripsi & Motto -->
                 <div class="main-bio-card">
                     <span class="tag-cv">CURRICULUM VITAE</span>
                     <h1>Arya Zada <span>Prayitno</span></h1>
@@ -272,10 +331,8 @@
                     </div>
                 </div>
 
-                <!-- Kolom Kanan: Foto, Nama, NRP, dan Tombol Kontak -->
                 <div class="sidebar-card">
                     <div class="photo-wrapper">
-                        <!-- Ganti "foto.jpg" sesuai dengan nama file foto yang Anda upload ke GitHub -->
                         <img src="foto.jpg" alt="Arya Zada Prayitno">
                     </div>
                     <h3>Computer Engineering</h3>
@@ -293,16 +350,41 @@
             </div>
         </div>
 
-        <!-- Tab 2: Education -->
+        <!-- Tab 2: Education (Timeline Layout) -->
         <div id="education" class="tab-pane">
             <div class="main-bio-card">
                 <span class="tag-cv">PENDIDIKAN</span>
-                <h1 style="font-size: 2rem; margin-bottom: 20px;">Riwayat Pendidikan</h1>
-                <ul style="list-style: none;">
-                    <li style="padding: 12px 0; border-bottom: 1px solid var(--border-color);"><strong>2024 - Sekarang:</strong> D4 Teknik Komputer - PENS</li>
-                    <li style="padding: 12px 0; border-bottom: 1px solid var(--border-color);"><strong>2021 - 2024:</strong> SMK PGRI 1 Ngawi</li>
-                    <li style="padding: 12px 0;"><strong>2018 - 2021:</strong> MTsN 6 Ngawi</li>
-                </ul>
+                <h1 style="font-size: 2rem; margin-bottom: 5px;">Riwayat Pendidikan</h1>
+                <p class="bio-text" style="margin-top: 0; margin-bottom: 30px;">Perjalanan pendidikan formal yang telah ditempuh.</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-badge">2024 — Sekarang</div>
+                        <div class="timeline-content">
+                            <h3>Politeknik Elektronika Negeri Surabaya</h3>
+                            <p>Perguruan Tinggi Negeri - D4 Teknik Komputer</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-badge">2021 — 2024</div>
+                        <div class="timeline-content">
+                            <h3>SMK PGRI 1 Ngawi</h3>
+                            <p>Sekolah Menengah Kejuruan</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-badge">2018 — 2021</div>
+                        <div class="timeline-content">
+                            <h3>MTsN 6 Ngawi</h3>
+                            <p>Sekolah Menengah Pertama</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
