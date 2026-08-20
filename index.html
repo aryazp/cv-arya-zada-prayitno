@@ -228,7 +228,7 @@
             transform: translateY(-2px);
         }
 
-        /* Timeline Style untuk Education */
+        /* Timeline Style */
         .timeline {
             position: relative;
             padding-left: 25px;
@@ -278,14 +278,32 @@
         }
 
         .timeline-content h3 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: white;
             margin-bottom: 4px;
         }
 
         .timeline-content p {
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+        }
+
+        /* Badges list for Seminars & Tools */
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .custom-badge {
+            background: #252525;
+            color: var(--text-color);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+            font-weight: 500;
         }
 
         /* Keahlian Styles */
@@ -363,7 +381,6 @@
         .tab-pane { display: none; }
         .tab-pane.active { display: block; }
 
-        /* Responsive Styles */
         @media (max-width: 900px) {
             .profile-grid { grid-template-columns: 1fr; }
             .navbar { flex-direction: column; gap: 15px; }
@@ -475,74 +492,60 @@
                     <button class="filter-btn" onclick="filterSkills('software')">Software & Programming</button>
                 </div>
 
-                <!-- Grid Keahlian (Sesuai Data Tabel Resmi) -->
+                <!-- Grid Keahlian -->
                 <div class="skills-grid">
-                    <!-- 1. Bahasa Inggris (Tingkat 2) -->
                     <div class="skill-card" data-category="bahasa">
                         <div class="skill-info"><h3>Bahasa Inggris</h3><p>Bahasa</p></div>
                         <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star"></span><span class="star"></span></div>
                     </div>
-                    <!-- 2. Rangkaian Listrik & Elektronik (Tingkat 2) -->
                     <div class="skill-card" data-category="hardware">
                         <div class="skill-info"><h3>Rangkaian Listrik & Elektronik</h3><p>Hardware</p></div>
                         <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star"></span><span class="star"></span></div>
                     </div>
-                    <!-- 3. Java Programming (Tingkat 2) -->
                     <div class="skill-card" data-category="software">
                         <div class="skill-info"><h3>Java Programming</h3><p>Programming</p></div>
                         <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star"></span><span class="star"></span></div>
                     </div>
-                    <!-- 4. C / C++ Programming (Tingkat 2) -->
                     <div class="skill-card" data-category="software">
                         <div class="skill-info"><h3>C / C++ Programming</h3><p>Programming</p></div>
                         <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star"></span><span class="star"></span></div>
                     </div>
-                    <!-- 5. Python Programming (Tingkat 2) -->
                     <div class="skill-card" data-category="software">
                         <div class="skill-info"><h3>Python Programming</h3><p>Programming</p></div>
                         <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star"></span><span class="star"></span></div>
                     </div>
-                    <!-- 6. Mikrokontroler & Embedded System (Tingkat 2) -->
                     <div class="skill-card" data-category="hardware">
                         <div class="skill-info"><h3>Mikrokontroler & Embedded System</h3><p>Hardware / IoT</p></div>
                         <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star"></span><span class="star"></span></div>
                     </div>
-                    <!-- 7. Rangkaian Sensor & Aktuator (Tingkat 3) -->
                     <div class="skill-card" data-category="hardware">
                         <div class="skill-info"><h3>Rangkaian Sensor & Aktuator</h3><p>Hardware</p></div>
                         <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star"></span></div>
                     </div>
-                    <!-- 8. Internet Of Things (Tingkat 3) -->
                     <div class="skill-card" data-category="hardware">
                         <div class="skill-info"><h3>Internet Of Things</h3><p>Hardware / IoT</p></div>
                         <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star"></span></div>
                     </div>
-                    <!-- 9. Network Engineering (Tingkat 3) -->
                     <div class="skill-card" data-category="hardware">
                         <div class="skill-info"><h3>Network Engineering</h3><p>Hardware / Network</p></div>
                         <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star"></span></div>
                     </div>
-                    <!-- 10. Database (MySQL) (Tingkat 2) -->
                     <div class="skill-card" data-category="software">
                         <div class="skill-info"><h3>Database (MySQL)</h3><p>Software / Database</p></div>
                         <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star"></span><span class="star"></span></div>
                     </div>
-                    <!-- 11. Soldering (SMD/Through-Hole) (Tingkat 4) -->
                     <div class="skill-card" data-category="hardware">
                         <div class="skill-info"><h3>Soldering (SMD/Through-Hole)</h3><p>Hardware</p></div>
                         <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star filled"></span></div>
                     </div>
-                    <!-- 12. Image Processing & Computer Vision (Tingkat 2) -->
                     <div class="skill-card" data-category="software">
                         <div class="skill-info"><h3>Image Processing & Computer Vision</h3><p>Software</p></div>
                         <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star"></span><span class="star"></span></div>
                     </div>
-                    <!-- 13. MATLAB & Simulink (Tingkat 2) -->
                     <div class="skill-card" data-category="software">
                         <div class="skill-info"><h3>MATLAB & Simulink</h3><p>Software</p></div>
                         <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star"></span><span class="star"></span></div>
                     </div>
-                    <!-- 14. Video Editing & Visual Effects (Tingkat 3) -->
                     <div class="skill-card" data-category="software">
                         <div class="skill-info"><h3>Video Editing & Visual Effects</h3><p>Software</p></div>
                         <div class="skill-rating"><span class="star filled"></span><span class="star filled"></span><span class="star filled"></span><span class="star"></span></div>
@@ -551,16 +554,144 @@
             </div>
         </div>
 
-        <!-- Tab 4: Experience -->
+        <!-- Tab 4: Experience (Diperbarui Sesuai Gambar 3) -->
         <div id="experience" class="tab-pane">
             <div class="main-bio-card">
-                <span class="tag-cv">PENGALAMAN</span>
-                <h1 style="font-size: 2rem; margin-bottom: 20px;">Pengalaman Organisasi</h1>
-                <ul style="list-style: none;">
-                    <li style="padding: 12px 0; border-bottom: 1px solid var(--border-color);"><strong>Staff Muda Dep. Kewirausahaan</strong> - HMCE</li>
-                    <li style="padding: 12px 0; border-bottom: 1px solid var(--border-color);"><strong>KORLAP</strong> - PKKMB x TECHNOGEAR</li>
-                    <li style="padding: 12px 0;"><strong>KOMDIS</strong> - LKMM TD PENS</li>
-                </ul>
+                <span class="tag-cv">PENGALAMAN & AKTIVITAS</span>
+                <h1 style="font-size: 2rem; margin-bottom: 25px;">Organization & Activities</h1>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-badge">2026 — Sekarang</div>
+                        <div class="timeline-content">
+                            <h3>Staff Muda Dept. Kewirausahaan</h3>
+                            <p>Himpunan Mahasiswa Computer Engineering (HMCE)</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-badge">2026 — Sekarang</div>
+                        <div class="timeline-content">
+                            <h3>Wakil Kepala Divisi Elektrikal Tim Robot Terbang</h3>
+                            <p>Cakrwala Skala (CAKSA)</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-badge">2026</div>
+                        <div class="timeline-content">
+                            <h3>Pembicara Pengenalan Tim Robot PENS</h3>
+                            <p>Computer Engineering Orientation (CEO)</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-badge">2026</div>
+                        <div class="timeline-content">
+                            <h3>Ketua Divisi KORLAP CEO 2025</h3>
+                            <p>Computer Engineering Orientation (CEO)</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-badge">2025 — 2026</div>
+                        <div class="timeline-content">
+                            <h3>Anggota Divisi Elektrikal Tim Robot Terbang</h3>
+                            <p>Cakrwala Skala (CAKSA)</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-badge">2025 — 2026</div>
+                        <div class="timeline-content">
+                            <h3>Pembicara Pengenalan Tim Robot PENS</h3>
+                            <p>UKM Dirgantara PENS</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-badge">2025 — 2026</div>
+                        <div class="timeline-content">
+                            <h3>Pemateri GCS & Flight Controller</h3>
+                            <p>UKM Dirgantara PENS</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-badge">2025</div>
+                        <div class="timeline-content">
+                            <h3>Panitia Divisi KORLAP Pengenalan Kehidupan Kampus bagi Mahasiswa Baru</h3>
+                            <p>PKKMB x TECHNOGEAR</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seminars & Workshops Section -->
+                <h2 style="font-size: 1.5rem; margin: 40px 0 20px 0; color: white;">Seminars & Workshops</h2>
+                <div class="badge-container">
+                    <span class="custom-badge">LKMM Pra TD 2024</span>
+                    <span class="custom-badge">Line Follower Analog Roboholic 2024</span>
+                    <span class="custom-badge">LKMM TD 2024</span>
+                    <span class="custom-badge">Pengaderan CEO Teknik Komputer 2024</span>
+                    <span class="custom-badge">Pelatihan UAV Dirgantara PENS 2025</span>
+                    <span class="custom-badge">Pelatihan K3 Listrik</span>
+                    <span class="custom-badge">Financial Literacy & Job Readiness</span>
+                    <span class="custom-badge">Entrepreneurship & PMW</span>
+                    <span class="custom-badge">GDGoC PENS x UKM SoftDev</span>
+                </div>
+
+                <!-- Software & Tools Section -->
+                <h2 style="font-size: 1.5rem; margin: 40px 0 20px 0; color: white;">Software & Tools</h2>
+                <div class="badge-container">
+                    <span class="custom-badge">C / C++</span>
+                    <span class="custom-badge">HTML</span>
+                    <span class="custom-badge">CSS</span>
+                    <span class="custom-badge">JavaScript</span>
+                    <span class="custom-badge">Python</span>
+                    <span class="custom-badge">MySQL</span>
+                    <span class="custom-badge">PostgreSQL</span>
+                    <span class="custom-badge">FreeRTOS</span>
+                    <span class="custom-badge">Supabase</span>
+                    <span class="custom-badge">Flutter</span>
+                    <span class="custom-badge">OpenCV</span>
+                    <span class="custom-badge">TensorFlow</span>
+                    <span class="custom-badge">Keras</span>
+                    <span class="custom-badge">NumPy</span>
+                    <span class="custom-badge">WordPress</span>
+                    <span class="custom-badge">VHDL</span>
+                    <span class="custom-badge">Verilog</span>
+                    <span class="custom-badge">Windows</span>
+                    <span class="custom-badge">Linux</span>
+                    <span class="custom-badge">Debian</span>
+                    <span class="custom-badge">VS Code</span>
+                    <span class="custom-badge">Xilinx ISE</span>
+                    <span class="custom-badge">Android Studio</span>
+                    <span class="custom-badge">Arduino IDE</span>
+                    <span class="custom-badge">MATLAB</span>
+                    <span class="custom-badge">Cisco Packet Tracer</span>
+                    <span class="custom-badge">Wireshark</span>
+                    <span class="custom-badge">Git & GitHub</span>
+                    <span class="custom-badge">EasyEDA</span>
+                    <span class="custom-badge">Postman</span>
+                    <span class="custom-badge">VirtualBox</span>
+                    <span class="custom-badge">Proteus</span>
+                    <span class="custom-badge">Blender</span>
+                    <span class="custom-badge">Betaflight</span>
+                    <span class="custom-badge">ArduPilot</span>
+                    <span class="custom-badge">Winbox</span>
+                    <span class="custom-badge">STM32CubeIDE</span>
+                    <span class="custom-badge">RoboAnalyzer</span>
+                    <span class="custom-badge">CorelDraw</span>
+                    <span class="custom-badge">Adobe Photoshop</span>
+                </div>
             </div>
         </div>
     </div>
