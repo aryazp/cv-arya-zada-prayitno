@@ -1,78 +1,234 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Arya Zada Prayitno</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --accent-color: #f1c40f;
-            --bg-color: #f4f7f6;
-            --text-color: #333;
-            --white: #ffffff;
+            --primary-color: #1e293b;
+            --accent-color: #3b82f6;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; }
-        .container { max-width: 900px; margin: 20px auto; padding: 20px; }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.3s ease; }
         
-        /* Header */
-        header { background: var(--primary-color); color: var(--white); padding: 40px; border-radius: 15px; text-align: center; margin-bottom: 20px; }
-        header h1 { font-size: 2.5em; margin-bottom: 10px; }
-        
-        /* Sections */
-        section { background: var(--white); padding: 30px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        h2 { border-bottom: 3px solid var(--accent-color); display: inline-block; margin-bottom: 20px; color: var(--primary-color); }
-        
-        /* Grid layout for Desktop */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        
-        /* List & Items */
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            line-height: 1.6; 
+            padding: 20px;
+        }
+
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 10px; 
+        }
+
+        /* Header Style */
+        header { 
+            background: linear-gradient(135deg, #1e293b, #0f172a); 
+            border: 1px solid var(--border-color);
+            color: var(--text-color); 
+            padding: 40px; 
+            border-radius: 20px; 
+            text-align: center; 
+            margin-bottom: 25px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        header h1 { 
+            font-size: 2.5rem; 
+            margin-bottom: 5px; 
+            color: #ffffff;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        /* Interactive Buttons */
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background-color: #334155;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background-color: var(--accent-color);
+            box-shadow: 0 6px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-wa:hover { background-color: #22c55e; box-shadow: 0 6px 15px rgba(34, 197, 94, 0.4); }
+        .btn-email:hover { background-color: #ef4444; box-shadow: 0 6px 15px rgba(239, 68, 68, 0.4); }
+
+        /* Sections Grid */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        section { 
+            background: var(--card-bg); 
+            border: 1px solid var(--border-color);
+            padding: 25px; 
+            border-radius: 16px; 
+            margin-bottom: 20px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        section:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            border-color: var(--accent-color);
+        }
+
+        .full-width {
+            grid-column: span 2;
+        }
+
+        h2 { 
+            font-size: 1.25rem;
+            color: var(--accent-color);
+            margin-bottom: 15px; 
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
         ul { list-style: none; }
-        li { padding: 5px 0; border-bottom: 1px solid #eee; }
         
+        li { 
+            padding: 8px 0; 
+            border-bottom: 1px solid var(--border-color); 
+            color: var(--text-muted);
+        }
+
+        li:last-child { border-bottom: none; }
+
+        li strong {
+            color: var(--text-color);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .skill-badge {
+            background-color: #334155;
+            color: #60a5fa;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .skill-badge:hover {
+            background-color: var(--accent-color);
+            color: white;
+            transform: scale(1.05);
+        }
+
         /* Responsive */
-        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { 
+            .grid-layout { grid-template-columns: 1fr; }
+            .full-width { grid-column: span 1; }
+            header h1 { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
+
     <div class="container">
+        <!-- Header -->
         <header>
             <h1>Arya Zada Prayitno</h1>
             <p>D4 Teknik Komputer | PENS</p>
+            <div class="social-buttons">
+                <a href="https://wa.me/6281359331502" target="_blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="mailto:aryazp@ce.student.pens.ac.id" class="btn btn-email"><i class="fas fa-envelope"></i> Email</a>
+                <a href="https://linkedin.com" target="_blank" class="btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
         </header>
 
-        <section id="bio">
-            <h2>Data Pribadi</h2>
-            <p><strong>Tempat, Tgl Lahir:</strong> Surabaya, 17 Januari 2005</p>
-            <p><strong>E-Mail:</strong> aryazp@ce.student.pens.ac.id</p>
-            <p><strong>Handphone:</strong> 081359331502</p>
-        </section>
-
-        <div class="grid">
-            <section id="education">
-                <h2>Riwayat Pendidikan</h2>
+        <div class="grid-layout">
+            <!-- Data Pribadi -->
+            <section>
+                <h2><i class="fas fa-user-circle"></i> Data Pribadi</h2>
                 <ul>
-                    <li>2024 - Sekarang: PENS</li>
-                    <li>2021 - 2024: SMK PGRI 1 Ngawi</li>
-                    <li>2018 - 2021: MTsN 6 Ngawi</li>
+                    <li><strong>Tempat, Tgl Lahir:</strong> Surabaya, 17 Januari 2005</li>
+                    <li><strong>E-Mail:</strong> aryazp@ce.student.pens.ac.id</li>
+                    <li><strong>Handphone:</strong> 081359331502</li>
                 </ul>
             </section>
-            <section id="org">
-                <h2>Pengalaman Organisasi</h2>
+
+            <!-- Riwayat Pendidikan -->
+            <section>
+                <h2><i class="fas fa-graduation-cap"></i> Riwayat Pendidikan</h2>
                 <ul>
-                    <li>Staff Muda Dep. Kewirausahaan - HMCE</li>
-                    <li>KORLAP - PKKMB x TECHNOGEAR</li>
-                    <li>KOMDIS - LKMM TD PENS</li>
+                    <li><strong>2024 - Sekarang:</strong> PENS</li>
+                    <li><strong>2021 - 2024:</strong> SMK PGRI 1 Ngawi</li>
+                    <li><strong>2018 - 2021:</strong> MTsN 6 Ngawi</li>
                 </ul>
+            </section>
+
+            <!-- Pengalaman Organisasi -->
+            <section class="full-width">
+                <h2><i class="fas fa-users"></i> Pengalaman Organisasi</h2>
+                <ul>
+                    <li><strong>Staff Muda Dep. Kewirausahaan</strong> - HMCE</li>
+                    <li><strong>KORLAP</strong> - PKKMB x TECHNOGEAR</li>
+                    <li><strong>KOMDIS</strong> - LKMM TD PENS</li>
+                </ul>
+            </section>
+
+            <!-- Kemampuan IT -->
+            <section class="full-width">
+                <h2><i class="fas fa-code"></i> Kemampuan IT</h2>
+                <div class="skills-container">
+                    <span class="skill-badge">Visual C/C++</span>
+                    <span class="skill-badge">Python</span>
+                    <span class="skill-badge">HTML/CSS/JS</span>
+                    <span class="skill-badge">Flutter</span>
+                    <span class="skill-badge">OpenCV</span>
+                    <span class="skill-badge">MySQL</span>
+                    <span class="skill-badge">Tensorflow</span>
+                </div>
             </section>
         </div>
-
-        <section id="skills">
-            <h2>Kemampuan IT</h2>
-            <p>Visual C/C++, Python, HTML/CSS/JS, Flutter, OpenCV, MySQL, Tensorflow, dll.</p>
-        </section>
     </div>
+
 </body>
 </html>
